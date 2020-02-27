@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('./index')['db'];
+module.exports = require('./index').db;
