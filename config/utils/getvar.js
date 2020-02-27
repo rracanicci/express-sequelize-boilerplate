@@ -21,15 +21,4 @@ function get_var(name, defaultValue = null) {
     return defaultValue;
 }
 
-module.exports = {
-    /*
-        port that the application should run
-    */
-    port: get_var('PORT', '3000'),
-
-    /*
-        in case of error, indicate if should return the error as pure HTML or
-        JSON
-    */
-    jsonError: get_var('JSON_ERROR', 'false')
-};
+module.exports = get_var;

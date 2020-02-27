@@ -5,12 +5,12 @@ function handleError(err, req, res, next) {
 
     // set locals, only providing error in development
     res.locals.message = err.message;
-    res.locals.error   = config.env === 'development' ? err : {};
+    res.locals.error   = config.isDev ? err : {};
 
     // setup response
     res.status(err.status || 500);
 
-    if (config.jsonError != 'true') {
+    if (config.app.jsonError != 'true') {
         res.render('error');
     }
     else res.json(err);

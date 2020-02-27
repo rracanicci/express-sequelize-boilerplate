@@ -1,7 +1,8 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
 
-/* GET home page. */
+const express = require('express');
+const router  = express.Router();
+
 router.get('/', function(req, res, next) {
     res.render('index', { title: 'express-sequelize-boilerplate' });
 });

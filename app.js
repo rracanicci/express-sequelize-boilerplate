@@ -10,12 +10,13 @@ const cookieParser = require('cookie-parser');
 const logger       = require('morgan');
 const error        = require('./middlewares/error');
 const debug        = require('debug')('app:app');
-const config       = require('./config/global');
+const config       = require('./config');
 
 /*
     routes
 */
 const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
 /*
     app setup
@@ -23,10 +24,8 @@ const indexRouter = require('./routes/index');
 const app = express();
 
 // set global config to be used latter on
-config.env = app.get('env');
 app.set('config', config);
-
-if (config.env === 'development') {
+if (config.isDev) {
     debug('config: ', app.get('config'));
 }
 
@@ -43,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
 app.use('/', indexRouter);
+app.use('/api/v1.0/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

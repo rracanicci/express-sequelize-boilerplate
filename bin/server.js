@@ -11,7 +11,7 @@ const config = app.get('config');
 /*
     set PORT on express
 */
-const port = normalizePort(config.port);
+const port = normalizePort(config.app.port);
 app.set('port', port);
 
 /*
