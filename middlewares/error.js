@@ -1,5 +1,7 @@
 'use strict';
 
+const createError  = require('http-errors');
+
 function handleError(err, req, res, next) {
     const config = req.app.get('config');
 
@@ -16,6 +18,18 @@ function handleError(err, req, res, next) {
     else res.json(err);
 }
 
+function throwError(func) {
+    return async (req, res, next) => {
+        try {
+            await func(req, res, next);
+        }
+        catch(err) {
+            next(createError(createError.InternalServerError, err));
+        }
+    };
+}
+
 module.exports = {
-    handleError
+    handleError,
+    throwError
 };
