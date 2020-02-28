@@ -22,7 +22,7 @@ let config = {
             database: get_var('DB_DATABASE', 'db_development'),
             host: get_var('DB_HOST', null),
             dialect: get_var('DB_DIALECT', 'sqlite'),
-            storage: get_var('DB_STORAGE', './db/database.sqlite')
+            storage: get_var('DB_STORAGE', './db/data/database.sqlite')
         },
         app: {
             port: get_var('PORT', '3000'),
@@ -36,7 +36,7 @@ let config = {
             database: get_var('DB_DATABASE', 'db_test'),
             host: get_var('DB_HOST', null),
             dialect: get_var('DB_DIALECT', 'sqlite'),
-            storage: get_var('DB_STORAGE', './db/database.sqlite')
+            storage: get_var('DB_STORAGE', './db/data/database.sqlite')
         },
         app: {
             port: get_var('PORT', '3000'),
@@ -50,7 +50,7 @@ let config = {
             database: get_var('DB_DATABASE', 'db_production'),
             host: get_var('DB_HOST', null),
             dialect: get_var('DB_DIALECT', 'sqlite'),
-            storage: get_var('DB_STORAGE', './db/database.sqlite')
+            storage: get_var('DB_STORAGE', './db/data/database.sqlite')
         },
         app: {
             port: get_var('PORT', '3000'),

@@ -1,0 +1,18 @@
+version: '3'
+services:
+    express-sequelize-boilerplate:
+        build: .
+        ports:
+            - "3000:3000"
+        environment:
+            - DEBUG=app:*
+            - DB_DIALECT=sqlite
+            - DB_STORAGE=/usr/src/app/db/data/database.sqlite
+            - PORT=3000
+            - JSON_ERROR=false
+        networks:
+            - backend
+
+networks:
+    backend:
+        driver: bridge
